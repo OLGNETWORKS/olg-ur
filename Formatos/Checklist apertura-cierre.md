@@ -1,0 +1,1 @@
+# Checklist apertura-cierre

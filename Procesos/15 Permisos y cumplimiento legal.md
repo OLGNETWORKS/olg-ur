@@ -1,0 +1,5 @@
+# 15 Permisos y cumplimiento legal
+
+## Ruta legal y renovaciones
+
+- Consultar [[0 Índice y ruta crítica|0 Índice y ruta crítica]] para los trámites, dependencias y renovaciones.

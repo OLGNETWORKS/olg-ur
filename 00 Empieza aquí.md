@@ -10,44 +10,44 @@
 
 ## Procesos
 
-- [[P01 Recepción y pesaje|P01 Recepción y pesaje]]
-- [[P02 Cotización y compra|P02 Cotización y compra]]
-- [[P03 Pago a proveedores|P03 Pago a proveedores]]
-- [[P04 Clasificación y limpieza|P04 Clasificación y limpieza]]
-- [[P05 Compactado y enfardado|P05 Compactado y enfardado]]
-- [[P06 Almacén e inventario|P06 Almacén e inventario]]
-- [[P07 Venta y negociación|P07 Venta y negociación]]
-- [[P08 Carga y logística de salida|P08 Carga y logística de salida]]
-- [[P09 Cobranza|P09 Cobranza]]
-- [[P10 Corte de caja diario|P10 Corte de caja diario]]
-- [[P11 Control de merma y robo|P11 Control de merma y robo]]
-- [[P12 Apertura y cierre del día|P12 Apertura y cierre del día]]
-- [[P13 Seguridad e higiene|P13 Seguridad e higiene]]
-- [[P14 Mantenimiento de equipo|P14 Mantenimiento de equipo]]
-- [[P15 Permisos y cumplimiento legal|P15 Permisos y cumplimiento legal]]
+- [[1 Recepción y pesaje|1 Recepción y pesaje]]
+- [[2 Cotización y compra|2 Cotización y compra]]
+- [[3 Pago a proveedores|3 Pago a proveedores]]
+- [[4 Clasificación y limpieza|4 Clasificación y limpieza]]
+- [[5 Compactado y enfardado|5 Compactado y enfardado]]
+- [[6 Almacén e inventario|6 Almacén e inventario]]
+- [[7 Venta y negociación|7 Venta y negociación]]
+- [[8 Carga y logística de salida|8 Carga y logística de salida]]
+- [[9 Cobranza|9 Cobranza]]
+- [[10 Corte de caja diario|10 Corte de caja diario]]
+- [[11 Control de merma y robo|11 Control de merma y robo]]
+- [[12 Apertura y cierre del día|12 Apertura y cierre del día]]
+- [[13 Seguridad e higiene|13 Seguridad e higiene]]
+- [[14 Mantenimiento de equipo|14 Mantenimiento de equipo]]
+- [[15 Permisos y cumplimiento legal|15 Permisos y cumplimiento legal]]
 
 ## Legal
 
-- [[L00 Índice y ruta crítica|L00 Índice y ruta crítica]]
+- [[0 Índice y ruta crítica|0 Índice y ruta crítica]]
 
 ## Roles
 
-- [[R01 Encargado general|R01 Encargado general]]
-- [[R02 Báscula y caja|R02 Báscula y caja]]
-- [[R03 Clasificador-cargador|R03 Clasificador-cargador]]
-- [[R04 Chofer|R04 Chofer]]
+- [[Encargado general|Encargado general]]
+- [[Báscula y caja|Báscula y caja]]
+- [[Clasificador-cargador|Clasificador-cargador]]
+- [[Chofer|Chofer]]
 
 ## Formatos
 
-- [[F01 Ticket de pesaje|F01 Ticket de pesaje]]
-- [[F02 Bitácora de entradas|F02 Bitácora de entradas]]
-- [[F03 Corte de caja|F03 Corte de caja]]
-- [[F04 Inventario semanal|F04 Inventario semanal]]
-- [[F05 Remisión de venta|F05 Remisión de venta]]
-- [[F06 Checklist apertura-cierre|F06 Checklist apertura-cierre]]
+- [[Ticket de pesaje|Ticket de pesaje]]
+- [[Bitácora de entradas|Bitácora de entradas]]
+- [[Corte de caja|Corte de caja]]
+- [[Inventario semanal|Inventario semanal]]
+- [[Remisión de venta|Remisión de venta]]
+- [[Checklist apertura-cierre|Checklist apertura-cierre]]
 
 ## Tablas
 
-- [[T01 Precios de compra por material|T01 Precios de compra por material]]
-- [[T02 Precios de venta y compradores|T02 Precios de venta y compradores]]
-- [[T03 Clasificación de materiales (qué se acepta y qué no)|T03 Clasificación de materiales (qué se acepta y qué no)]]
+- [[Precios de compra por material|Precios de compra por material]]
+- [[Precios de venta y compradores|Precios de venta y compradores]]
+- [[Clasificación de materiales (qué se acepta y qué no)|Clasificación de materiales (qué se acepta y qué no)]]
