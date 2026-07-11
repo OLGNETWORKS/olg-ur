@@ -10,21 +10,32 @@
 
 ## Procesos
 
-- [[1 Recepción y pesaje|1 Recepción y pesaje]]
-- [[2 Cotización y compra|2 Cotización y compra]]
-- [[3 Pago a proveedores|3 Pago a proveedores]]
-- [[4 Clasificación y limpieza|4 Clasificación y limpieza]]
-- [[5 Compactado y enfardado|5 Compactado y enfardado]]
-- [[6 Almacén e inventario|6 Almacén e inventario]]
-- [[7 Venta y negociación|7 Venta y negociación]]
-- [[8 Carga y logística de salida|8 Carga y logística de salida]]
-- [[9 Cobranza|9 Cobranza]]
-- [[10 Corte de caja diario|10 Corte de caja diario]]
-- [[11 Control de merma y robo|11 Control de merma y robo]]
-- [[12 Apertura y cierre del día|12 Apertura y cierre del día]]
-- [[13 Seguridad e higiene|13 Seguridad e higiene]]
-- [[14 Mantenimiento de equipo|14 Mantenimiento de equipo]]
-- [[15 Permisos y cumplimiento legal|15 Permisos y cumplimiento legal]]
+### 1 Entrada
+
+- [[1.1 Recepción y pesaje|1.1 Recepción y pesaje]]
+- [[1.2 Cotización y compra|1.2 Cotización y compra]]
+- [[1.3 Pago a proveedores|1.3 Pago a proveedores]]
+
+### 2 Transformación
+
+- [[2.1 Clasificación y limpieza|2.1 Clasificación y limpieza]]
+- [[2.2 Compactado y enfardado|2.2 Compactado y enfardado]]
+- [[2.3 Almacén e inventario|2.3 Almacén e inventario]]
+
+### 3 Salida
+
+- [[3.1 Venta y negociación|3.1 Venta y negociación]]
+- [[3.2 Carga y logística de salida|3.2 Carga y logística de salida]]
+- [[3.3 Cobranza|3.3 Cobranza]]
+
+### 4 Soporte
+
+- [[4.1 Corte de caja diario|4.1 Corte de caja diario]]
+- [[4.2 Control de merma y robo|4.2 Control de merma y robo]]
+- [[4.3 Apertura y cierre del día|4.3 Apertura y cierre del día]]
+- [[4.4 Seguridad e higiene|4.4 Seguridad e higiene]]
+- [[4.5 Mantenimiento de equipo|4.5 Mantenimiento de equipo]]
+- [[4.6 Permisos y cumplimiento legal|4.6 Permisos y cumplimiento legal]]
 
 ## Legal
 
