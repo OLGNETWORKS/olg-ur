@@ -4,8 +4,8 @@
   "title": "Create Centro de Acopio vault structure",
   "titleGenerationStatus": "success",
   "createdAt": 1783744038613,
-  "updatedAt": 1783800785689,
-  "lastResponseAt": 1783800785689,
+  "updatedAt": 1783817856240,
+  "lastResponseAt": 1783817856240,
   "sessionId": "019f4f6e-0a01-7130-a35c-73a5d7d80c54",
   "selectedModel": "gpt-5.6-sol",
   "providerState": {
@@ -14,13 +14,13 @@
     "transcriptRootPath": "C:\\Users\\T14\\.codex\\sessions"
   },
   "usage": {
-    "inputTokens": 190285,
+    "inputTokens": 97025,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 189184,
+    "cacheReadInputTokens": 96000,
     "contextWindow": 353400,
     "contextWindowIsAuthoritative": true,
-    "contextTokens": 190285,
-    "percentage": 54,
+    "contextTokens": 97025,
+    "percentage": 27,
     "model": "gpt-5.6-sol"
   }
 }

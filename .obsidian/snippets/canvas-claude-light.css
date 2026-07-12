@@ -1,0 +1,145 @@
+/*
+ * Canvas estilo Claude — fondo crema + texto oscuro legible
+ * Activar: Settings → Appearance → CSS snippets → canvas-claude-light
+ */
+
+/* ── Variables light dentro de TODO el canvas (vault en dark mode) ── */
+.mod-canvas,
+.workspace-leaf-content[data-type="canvas"] {
+	--background-primary: #ffffff;
+	--background-primary-alt: #faf9f7;
+	--background-secondary: #f5f4f0;
+	--background-secondary-alt: #efeeeb;
+	--text-normal: #1f1e1d;
+	--text-muted: #6b6a68;
+	--text-faint: #9b9a97;
+	--text-accent: #1f1e1d;
+	--color-base-100: #1f1e1d;
+	--color-base-70: #6b6a68;
+	--color-base-50: #9b9a97;
+	--color-base-30: #d4d2cf;
+	--color-base-00: #ffffff;
+	--table-border-color: #e8e6e3;
+	--table-header-background: #f5f4f0;
+	--table-background-color: #ffffff;
+	--table-row-background-hover: #faf9f7;
+	--table-row-alt-background: #faf9f7;
+	--link-color: #c45c3e;
+	--link-color-hover: #a84a32;
+	--link-unresolved-color: #9b9a97;
+	--hr-color: #e8e6e3;
+	--checkbox-color: #1f1e1d;
+	--checkbox-marker-color: #ffffff;
+}
+
+/* ── Fondo del lienzo (crema Claude) ── */
+svg.canvas-background {
+	background-color: #faf9f7 !important;
+}
+
+svg.canvas-background circle {
+	fill: #e8e6e3;
+	opacity: 0.85;
+}
+
+/* ── Cards / nodos ── */
+.mod-canvas .canvas-node-container {
+	background-color: #ffffff !important;
+	border: 1px solid #e8e6e3 !important;
+	box-shadow: 0 1px 4px rgba(31, 30, 29, 0.06);
+	border-radius: 12px;
+}
+
+/* ── Texto en nodos (text + file) — forzar oscuro ── */
+.mod-canvas .canvas-node-content,
+.mod-canvas .canvas-node-content .markdown-preview-view,
+.mod-canvas .canvas-node-content .markdown-rendered,
+.mod-canvas .markdown-preview-view.markdown-rendered {
+	color: #1f1e1d !important;
+	background-color: #ffffff !important;
+}
+
+.mod-canvas .markdown-rendered h1,
+.mod-canvas .markdown-rendered h2,
+.mod-canvas .markdown-rendered h3,
+.mod-canvas .markdown-rendered h4,
+.mod-canvas .markdown-rendered h5,
+.mod-canvas .markdown-rendered h6,
+.mod-canvas .markdown-rendered p,
+.mod-canvas .markdown-rendered li,
+.mod-canvas .markdown-rendered strong,
+.mod-canvas .markdown-rendered em,
+.mod-canvas .markdown-rendered blockquote,
+.mod-canvas .markdown-rendered .callout-title,
+.mod-canvas .markdown-rendered .callout-content {
+	color: #1f1e1d !important;
+}
+
+.mod-canvas .markdown-rendered blockquote {
+	border-left-color: #e8e6e3 !important;
+	background-color: #faf9f7 !important;
+}
+
+/* Tablas */
+.mod-canvas .markdown-rendered table,
+.mod-canvas .markdown-rendered th,
+.mod-canvas .markdown-rendered td {
+	color: #1f1e1d !important;
+	border-color: #e8e6e3 !important;
+	background-color: #ffffff !important;
+}
+
+.mod-canvas .markdown-rendered thead th {
+	background-color: #f5f4f0 !important;
+}
+
+.mod-canvas .markdown-rendered tbody tr:nth-child(even) td {
+	background-color: #faf9f7 !important;
+}
+
+/* Links wikilinks */
+.mod-canvas .markdown-rendered a.internal-link,
+.mod-canvas .markdown-rendered a.external-link {
+	color: #c45c3e !important;
+}
+
+/* Checklist */
+.mod-canvas .markdown-rendered .task-list-item,
+.mod-canvas .markdown-rendered .task-list-item > p {
+	color: #1f1e1d !important;
+}
+
+/* Modo edición en nodo de texto */
+.mod-canvas .canvas-node-content .cm-editor,
+.mod-canvas .canvas-node-content .cm-scroller,
+.mod-canvas .canvas-node-content .cm-content,
+.mod-canvas .canvas-node-content .cm-line {
+	background-color: #ffffff !important;
+	color: #1f1e1d !important;
+	caret-color: #1f1e1d !important;
+}
+
+/* File nodes (iframe) */
+.mod-canvas .canvas-node-iframe-body,
+.mod-canvas .embed-iframe,
+.mod-canvas .markdown-embed-content {
+	--background-primary: #ffffff;
+	--text-normal: #1f1e1d;
+	color: #1f1e1d !important;
+	background-color: #ffffff !important;
+}
+
+/* ── Flechas / edges ── */
+.mod-canvas .canvas-edges path.canvas-display-path {
+	stroke: #d4d2cf;
+}
+
+.mod-canvas .canvas-edges path.canvas-path-end {
+	fill: #d4d2cf;
+}
+
+.mod-canvas .canvas-edges .canvas-edge-label {
+	color: #6b6a68 !important;
+	background: #ffffff !important;
+	border: 1px solid #e8e6e3;
+}
