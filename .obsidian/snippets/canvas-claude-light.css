@@ -52,12 +52,11 @@
 	--canvas-body-size: 22px;
 	--canvas-table-size: 20px;
 
-	/* Scrollbar estilo Apple — ancho fino; largo mínimo del thumb en rem */
-	--canvas-scrollbar-size: 3.5px;
-	--canvas-scrollbar-thumb-min: 0.75rem;
-	--canvas-scrollbar-thumb: rgba(31, 30, 29, 0.16);
-	--canvas-scrollbar-thumb-hover: rgba(31, 30, 29, 0.28);
-	--canvas-scrollbar-thumb-active: rgba(31, 30, 29, 0.38);
+	/* Scrollbar fake pill (scroll-driven) — ~5×56px */
+	--canvas-scrollbar-width: 5px;
+	--canvas-scrollbar-thumb-length: 56px;
+	--canvas-scrollbar-thumb: #b8b8b8;
+	--canvas-scrollbar-thumb-hover: #9a9a9a;
 }
 
 /* ── Fondo del lienzo (crema Claude) ── */
@@ -222,86 +221,83 @@ svg.canvas-background circle {
 	font-size: var(--canvas-body-size) !important;
 }
 
-/* ── Scrollbar minimalista (Apple) — oculto en reposo, visible al usar ── */
-.canvas-wrapper .canvas-node-content,
-.canvas-wrapper .canvas-node-content .markdown-preview-view,
-.canvas-wrapper .canvas-node-content .cm-scroller,
-.canvas-wrapper .ac-card-embed > .markdown-content,
-.canvas-wrapper .markdown-embed-content {
-	scrollbar-width: thin;
-	scrollbar-color: transparent transparent;
+/* ── Scrollbar fake pill (CSS scroll-driven) — tamaño fijo, mueve con scroll ── */
+@supports (animation-timeline: scroll()) {
+	.workspace-leaf-content[data-type="canvas"] .canvas-node .canvas-node-container,
+	.canvas-wrapper .canvas-node .canvas-node-container {
+		position: relative !important;
+		timeline-scope: --canvas-node-scroll;
+	}
+
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content,
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content .markdown-preview-view,
+	.canvas-wrapper .canvas-node-content,
+	.canvas-wrapper .canvas-node-content .markdown-preview-view {
+		scroll-timeline: --canvas-node-scroll y;
+		scrollbar-width: none;
+	}
+
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content::-webkit-scrollbar,
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content .markdown-preview-view::-webkit-scrollbar,
+	.canvas-wrapper .canvas-node-content::-webkit-scrollbar,
+	.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar {
+		width: 0 !important;
+		height: 0 !important;
+		display: none;
+	}
+
+	.workspace-leaf-content[data-type="canvas"] .canvas-node .canvas-node-container::after,
+	.canvas-wrapper .canvas-node .canvas-node-container::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 8px;
+		width: var(--canvas-scrollbar-width);
+		height: var(--canvas-scrollbar-thumb-length);
+		border-radius: 999px;
+		background: var(--canvas-scrollbar-thumb);
+		pointer-events: none;
+		z-index: 4;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		animation: canvas-fake-thumb-y linear both;
+		animation-timeline: --canvas-node-scroll;
+		animation-range: 0% 100%;
+	}
+
+	.workspace-leaf-content[data-type="canvas"] .canvas-node:hover .canvas-node-container::after,
+	.workspace-leaf-content[data-type="canvas"] .canvas-node:focus-within .canvas-node-container::after,
+	.canvas-wrapper .canvas-node:hover .canvas-node-container::after,
+	.canvas-wrapper .canvas-node:focus-within .canvas-node-container::after {
+		opacity: 1;
+	}
+
+	@keyframes canvas-fake-thumb-y {
+		from {
+			top: 0;
+		}
+		to {
+			top: calc(100% - 56px);
+		}
+	}
 }
 
-.canvas-wrapper .canvas-node:hover .canvas-node-content,
-.canvas-wrapper .canvas-node:hover .canvas-node-content .markdown-preview-view,
-.canvas-wrapper .canvas-node:hover .canvas-node-content .cm-scroller,
-.canvas-wrapper .canvas-node-content:hover,
-.canvas-wrapper .canvas-node-content .markdown-preview-view:hover,
-.canvas-wrapper .canvas-node-content .cm-scroller:hover,
-.canvas-wrapper .canvas-node-content:focus-within,
-.canvas-wrapper .canvas-node-content .markdown-preview-view:focus-within,
-.canvas-wrapper .canvas-node-content .cm-scroller:focus-within,
-.canvas-wrapper .ac-card-embed:hover > .markdown-content,
-.canvas-wrapper .markdown-embed-content:hover {
-	scrollbar-color: var(--canvas-scrollbar-thumb) transparent;
-}
+/* Fallback si el navegador no soporta scroll-driven animations */
+@supports not (animation-timeline: scroll()) {
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content::-webkit-scrollbar,
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content .markdown-preview-view::-webkit-scrollbar,
+	.canvas-wrapper .canvas-node-content::-webkit-scrollbar,
+	.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar {
+		width: var(--canvas-scrollbar-width) !important;
+	}
 
-.canvas-wrapper .canvas-node-content::-webkit-scrollbar,
-.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar,
-.canvas-wrapper .canvas-node-content .cm-scroller::-webkit-scrollbar,
-.canvas-wrapper .ac-card-embed > .markdown-content::-webkit-scrollbar,
-.canvas-wrapper .markdown-embed-content::-webkit-scrollbar {
-	width: var(--canvas-scrollbar-size);
-	height: var(--canvas-scrollbar-size);
-}
-
-.canvas-wrapper .canvas-node-content::-webkit-scrollbar-track,
-.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar-track,
-.canvas-wrapper .canvas-node-content .cm-scroller::-webkit-scrollbar-track,
-.canvas-wrapper .ac-card-embed > .markdown-content::-webkit-scrollbar-track,
-.canvas-wrapper .markdown-embed-content::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-.canvas-wrapper .canvas-node-content::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .cm-scroller::-webkit-scrollbar-thumb,
-.canvas-wrapper .ac-card-embed > .markdown-content::-webkit-scrollbar-thumb,
-.canvas-wrapper .markdown-embed-content::-webkit-scrollbar-thumb {
-	background-color: transparent;
-	border-radius: 999px;
-	border: 1px solid transparent;
-	background-clip: content-box;
-	min-height: var(--canvas-scrollbar-thumb-min);
-	transition: background-color 0.22s ease;
-}
-
-.canvas-wrapper .canvas-node:hover .canvas-node-content::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node:hover .canvas-node-content .markdown-preview-view::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node:hover .canvas-node-content .cm-scroller::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content:hover::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .markdown-preview-view:hover::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .cm-scroller:hover::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content:focus-within::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .markdown-preview-view:focus-within::-webkit-scrollbar-thumb,
-.canvas-wrapper .canvas-node-content .cm-scroller:focus-within::-webkit-scrollbar-thumb,
-.canvas-wrapper .ac-card-embed:hover > .markdown-content::-webkit-scrollbar-thumb,
-.canvas-wrapper .markdown-embed-content:hover::-webkit-scrollbar-thumb {
-	background-color: var(--canvas-scrollbar-thumb);
-}
-
-.canvas-wrapper .canvas-node-content::-webkit-scrollbar-thumb:active,
-.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar-thumb:active,
-.canvas-wrapper .canvas-node-content .cm-scroller::-webkit-scrollbar-thumb:active,
-.canvas-wrapper .ac-card-embed > .markdown-content::-webkit-scrollbar-thumb:active,
-.canvas-wrapper .markdown-embed-content::-webkit-scrollbar-thumb:active {
-	background-color: var(--canvas-scrollbar-thumb-active);
-}
-
-.canvas-wrapper .canvas-node-content::-webkit-scrollbar-corner,
-.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar-corner,
-.canvas-wrapper .canvas-node-content .cm-scroller::-webkit-scrollbar-corner {
-	background: transparent;
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content::-webkit-scrollbar-thumb,
+	.workspace-leaf-content[data-type="canvas"] .canvas-node-content .markdown-preview-view::-webkit-scrollbar-thumb,
+	.canvas-wrapper .canvas-node-content::-webkit-scrollbar-thumb,
+	.canvas-wrapper .canvas-node-content .markdown-preview-view::-webkit-scrollbar-thumb {
+		background-color: var(--canvas-scrollbar-thumb) !important;
+		border-radius: 999px !important;
+	}
 }
 
 /* ── Flechas / edges ── */
