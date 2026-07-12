@@ -1,0 +1,15 @@
+{
+	"nodes": [
+		{
+			"id": "olg-const-11-prueba",
+			"type": "file",
+			"file": "Legal/1 Constitución/1.1 Decisión tipo de sociedad.md",
+			"x": 0,
+			"y": 0,
+			"width": 560,
+			"height": 720,
+			"color": "4"
+		}
+	],
+	"edges": []
+}
