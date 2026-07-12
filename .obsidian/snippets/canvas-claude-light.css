@@ -1,10 +1,12 @@
 /*
- * Canvas estilo Claude — fondo crema + texto oscuro legible
+ * Canvas estilo Claude — fondo crema + nodos flotantes
  * Activar: Settings → Appearance → CSS snippets → canvas-claude-light
+ *
+ * IMPORTANTE: Obsidian usa .canvas-wrapper (no .mod-canvas) como contenedor del lienzo.
  */
 
-/* ── Variables light dentro de TODO el canvas (vault en dark mode) ── */
-.mod-canvas,
+/* ── Scope del canvas ── */
+.canvas-wrapper,
 .workspace-leaf-content[data-type="canvas"] {
 	--background-primary: #ffffff;
 	--background-primary-alt: #faf9f7;
@@ -30,6 +32,20 @@
 	--hr-color: #e8e6e3;
 	--checkbox-color: #1f1e1d;
 	--checkbox-marker-color: #ffffff;
+
+	/* Sustituir sombra/borde por defecto de Obsidian (parece borde gris/verde) */
+	--canvas-card-border: #e8e8e8;
+	--canvas-card-shadow:
+		0 1px 2px rgba(0, 0, 0, 0.03),
+		0 4px 16px rgba(0, 0, 0, 0.04),
+		0 20px 48px rgba(0, 0, 0, 0.05);
+	--canvas-card-shadow-focus:
+		0 2px 4px rgba(0, 0, 0, 0.04),
+		0 8px 24px rgba(0, 0, 0, 0.06),
+		0 28px 56px rgba(0, 0, 0, 0.07);
+	--shadow-stationary: var(--canvas-card-shadow);
+	--shadow-border-accent: none;
+	--shadow-border-themed: none;
 }
 
 /* ── Fondo del lienzo (crema Claude) ── */
@@ -42,87 +58,134 @@ svg.canvas-background circle {
 	opacity: 0.85;
 }
 
-/* ── Cards / nodos ── */
-.mod-canvas .canvas-node-container {
-	background-color: #ffffff !important;
-	border: 1px solid #e8e6e3 !important;
-	box-shadow: 0 1px 4px rgba(31, 30, 29, 0.06);
-	border-radius: 12px;
+/* ── Nodos: anular color de paleta + Advanced Canvas (reactive-node 3–5px) ── */
+.canvas-wrapper .canvas-node,
+.canvas-wrapper .canvas-node.is-themed,
+.canvas-wrapper .canvas-node.is-focused,
+.canvas-wrapper .canvas-node.is-selected,
+.canvas-wrapper .reactive-node,
+.canvas-wrapper .reactive-node.is-themed,
+.canvas-wrapper .reactive-node.is-focused,
+.canvas-wrapper .reactive-node.is-selected {
+	--canvas-color: 255, 255, 255 !important;
+	--border-color: #e8e8e8 !important;
+	--border-width: 1px !important;
+	--box-shadow: none !important;
+	outline: none !important;
 }
 
-/* ── Texto en nodos (text + file) — forzar oscuro ── */
-.mod-canvas .canvas-node-content,
-.mod-canvas .canvas-node-content .markdown-preview-view,
-.mod-canvas .canvas-node-content .markdown-rendered,
-.mod-canvas .markdown-preview-view.markdown-rendered {
+/* Contenedor del nodo — regla principal (Obsidian + Advanced Canvas) */
+.canvas-wrapper .canvas-node .canvas-node-container,
+.canvas-wrapper .reactive-node .canvas-node-container,
+.canvas-wrapper .is-themed.canvas-node .canvas-node-container,
+.canvas-wrapper .reactive-node.is-themed .canvas-node-container,
+.canvas-wrapper .canvas-node.is-themed:not(:has(.embed-iframe)) .canvas-node-container {
+	background-color: #ffffff !important;
+	background-image: none !important;
+	border: 1px solid var(--canvas-card-border) !important;
+	border-radius: 22px !important;
+	outline: none !important;
+	box-shadow: var(--canvas-card-shadow) !important;
+}
+
+/* Focus / selección */
+.canvas-wrapper .canvas-node.is-focused .canvas-node-container,
+.canvas-wrapper .canvas-node.is-selected .canvas-node-container,
+.canvas-wrapper .reactive-node.is-focused .canvas-node-container,
+.canvas-wrapper .reactive-node.is-selected .canvas-node-container {
+	border: 1px solid #e0e0e0 !important;
+	outline: none !important;
+	box-shadow: var(--canvas-card-shadow-focus) !important;
+}
+
+/* Shapes Advanced Canvas */
+.canvas-wrapper .canvas-node[data-shape] .canvas-node-container {
+	border-width: 1px !important;
+	border-color: var(--canvas-card-border) !important;
+	border-radius: 22px !important;
+}
+
+.canvas-wrapper .canvas-node.is-themed .canvas-node-content,
+.canvas-wrapper .reactive-node.is-themed .canvas-node-content {
+	background-color: #ffffff !important;
+}
+
+.canvas-wrapper .ac-card-embed,
+.canvas-wrapper .ac-card-embed.is-themed {
+	background-color: #ffffff !important;
+	border: 1px solid var(--canvas-card-border) !important;
+	border-radius: 22px !important;
+	box-shadow: var(--canvas-card-shadow) !important;
+}
+
+/* ── Texto en nodos — forzar oscuro (vault en dark mode) ── */
+.canvas-wrapper .canvas-node-content,
+.canvas-wrapper .canvas-node-content .markdown-preview-view,
+.canvas-wrapper .canvas-node-content .markdown-rendered,
+.canvas-wrapper .markdown-preview-view.markdown-rendered {
 	color: #1f1e1d !important;
 	background-color: #ffffff !important;
 }
 
-.mod-canvas .markdown-rendered h1,
-.mod-canvas .markdown-rendered h2,
-.mod-canvas .markdown-rendered h3,
-.mod-canvas .markdown-rendered h4,
-.mod-canvas .markdown-rendered h5,
-.mod-canvas .markdown-rendered h6,
-.mod-canvas .markdown-rendered p,
-.mod-canvas .markdown-rendered li,
-.mod-canvas .markdown-rendered strong,
-.mod-canvas .markdown-rendered em,
-.mod-canvas .markdown-rendered blockquote,
-.mod-canvas .markdown-rendered .callout-title,
-.mod-canvas .markdown-rendered .callout-content {
+.canvas-wrapper .markdown-rendered h1,
+.canvas-wrapper .markdown-rendered h2,
+.canvas-wrapper .markdown-rendered h3,
+.canvas-wrapper .markdown-rendered h4,
+.canvas-wrapper .markdown-rendered h5,
+.canvas-wrapper .markdown-rendered h6,
+.canvas-wrapper .markdown-rendered p,
+.canvas-wrapper .markdown-rendered li,
+.canvas-wrapper .markdown-rendered strong,
+.canvas-wrapper .markdown-rendered em,
+.canvas-wrapper .markdown-rendered blockquote,
+.canvas-wrapper .markdown-rendered .callout-title,
+.canvas-wrapper .markdown-rendered .callout-content {
 	color: #1f1e1d !important;
 }
 
-.mod-canvas .markdown-rendered blockquote {
+.canvas-wrapper .markdown-rendered blockquote {
 	border-left-color: #e8e6e3 !important;
 	background-color: #faf9f7 !important;
 }
 
-/* Tablas */
-.mod-canvas .markdown-rendered table,
-.mod-canvas .markdown-rendered th,
-.mod-canvas .markdown-rendered td {
+.canvas-wrapper .markdown-rendered table,
+.canvas-wrapper .markdown-rendered th,
+.canvas-wrapper .markdown-rendered td {
 	color: #1f1e1d !important;
 	border-color: #e8e6e3 !important;
 	background-color: #ffffff !important;
 }
 
-.mod-canvas .markdown-rendered thead th {
+.canvas-wrapper .markdown-rendered thead th {
 	background-color: #f5f4f0 !important;
 }
 
-.mod-canvas .markdown-rendered tbody tr:nth-child(even) td {
+.canvas-wrapper .markdown-rendered tbody tr:nth-child(even) td {
 	background-color: #faf9f7 !important;
 }
 
-/* Links wikilinks */
-.mod-canvas .markdown-rendered a.internal-link,
-.mod-canvas .markdown-rendered a.external-link {
+.canvas-wrapper .markdown-rendered a.internal-link,
+.canvas-wrapper .markdown-rendered a.external-link {
 	color: #c45c3e !important;
 }
 
-/* Checklist */
-.mod-canvas .markdown-rendered .task-list-item,
-.mod-canvas .markdown-rendered .task-list-item > p {
+.canvas-wrapper .markdown-rendered .task-list-item,
+.canvas-wrapper .markdown-rendered .task-list-item > p {
 	color: #1f1e1d !important;
 }
 
-/* Modo edición en nodo de texto */
-.mod-canvas .canvas-node-content .cm-editor,
-.mod-canvas .canvas-node-content .cm-scroller,
-.mod-canvas .canvas-node-content .cm-content,
-.mod-canvas .canvas-node-content .cm-line {
+.canvas-wrapper .canvas-node-content .cm-editor,
+.canvas-wrapper .canvas-node-content .cm-scroller,
+.canvas-wrapper .canvas-node-content .cm-content,
+.canvas-wrapper .canvas-node-content .cm-line {
 	background-color: #ffffff !important;
 	color: #1f1e1d !important;
 	caret-color: #1f1e1d !important;
 }
 
-/* File nodes (iframe) */
-.mod-canvas .canvas-node-iframe-body,
-.mod-canvas .embed-iframe,
-.mod-canvas .markdown-embed-content {
+.canvas-wrapper .canvas-node-iframe-body,
+.canvas-wrapper .embed-iframe,
+.canvas-wrapper .markdown-embed-content {
 	--background-primary: #ffffff;
 	--text-normal: #1f1e1d;
 	color: #1f1e1d !important;
@@ -130,15 +193,15 @@ svg.canvas-background circle {
 }
 
 /* ── Flechas / edges ── */
-.mod-canvas .canvas-edges path.canvas-display-path {
+.canvas-wrapper .canvas-edges path.canvas-display-path {
 	stroke: #d4d2cf;
 }
 
-.mod-canvas .canvas-edges path.canvas-path-end {
+.canvas-wrapper .canvas-edges path.canvas-path-end {
 	fill: #d4d2cf;
 }
 
-.mod-canvas .canvas-edges .canvas-edge-label {
+.canvas-wrapper .canvas-edges .canvas-edge-label {
 	color: #6b6a68 !important;
 	background: #ffffff !important;
 	border: 1px solid #e8e6e3;
