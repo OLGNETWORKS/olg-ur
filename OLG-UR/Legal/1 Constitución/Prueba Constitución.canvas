@@ -1,16 +1,10 @@
 {
 	"nodes":[
-		{"id":"titulo","type":"text","text":"# Prueba — Paso 1.1\n\n**Izquierda:** objetivo, qué hacer, evidencia.\n**Derecha:** la nota (trabajo + checklist).\n\nCompleta todo → marca listo → recién ahí sigues.","x":40,"y":-40,"width":1280,"height":160},
-		{"id":"hacer","type":"text","text":"## ✋ Qué hacer\n\n1. Abre la nota **1.1** (→)\n2. Lee comparativa SA vs SRL\n3. Marca el **checklist** ahí\n4. Llena **Decisiones** (↓)","x":40,"y":390,"width":300,"height":240},
-		{"id":"evidencia","type":"file","file":"OLG-UR/Decisiones.md","x":40,"y":660,"width":300,"height":320},
-		{"id":"listo","type":"text","text":"## ✅ Listo cuando\n\n- [ ] Checklist 1.1 al 100%\n- [ ] Tabla 1.1 en Decisiones llena\n- [ ] `estado: listo` en nota 1.1\n\n→ Entonces **1.2**","x":40,"y":1010,"width":300,"height":220},
-		{"id":"paso1","type":"file","file":"OLG-UR/Legal/1 Constitución/1.1 Decisión tipo de sociedad.md","x":760,"y":160,"width":940,"height":1070},
-		{"id":"objetivo","type":"text","text":"## 🎯 Objetivo\n\nElegir **tipo de sociedad** (S. de R.L. u otra) con acuerdo de todos los socios.\n\n*Una sola decisión clara antes del notario.*","x":40,"y":160,"width":300,"height":200}
+		{"id":"paso1","type":"file","file":"OLG-UR/Legal/1 Constitución/1.1 Decisión tipo de sociedad.md","x":20,"y":480,"width":920,"height":1100},
+		{"id":"status","type":"text","text":"# Paso 1.1 — Elegir tipo de sociedad\n\n**Una sola caja abajo.** Todo pasa ahí: leer → decidir → marcar las 3 casillas del cockpit → llenar [[Decisiones]].\n\n`estado: borrador` en la nota hasta que cierres el paso.","x":120,"y":120,"width":720,"height":140}
 	],
 	"edges":[
-		{"id":"e-hacer-paso","fromNode":"hacer","fromSide":"right","toNode":"paso1","toSide":"left","label":"trabajar aquí"},
-		{"id":"e-ev-paso","fromNode":"evidencia","fromSide":"right","toNode":"paso1","toSide":"left","label":"evidencia"},
-		{"id":"e-listo-paso","fromNode":"listo","fromSide":"right","toNode":"paso1","toSide":"left","label":"criterio"}
+		{"id":"e1","fromNode":"status","fromSide":"bottom","toNode":"paso1","toSide":"top"}
 	],
 	"metadata":{
 		"version":"1.0-1.0",
