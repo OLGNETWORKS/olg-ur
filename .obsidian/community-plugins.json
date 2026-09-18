@@ -3,5 +3,6 @@
   "notebook-navigator",
   "neat-file-tree",
   "obsidian-git",
-  "advanced-canvas"
+  "advanced-canvas",
+  "obsidian-local-rest-api"
 ]
