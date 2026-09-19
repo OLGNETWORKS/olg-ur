@@ -72,7 +72,7 @@
 
 ### 1 Constitución
 
-- [[Legal/1 Constitución/1.0 Constitución — explicación en lenguaje sencillo|1.0 Constitución — explicación en lenguaje sencillo (empieza aquí)]]
+- [[1.0 Constitución|1.0 Constitución — explicación en lenguaje sencillo (empieza aquí)]]
 - [[Legal/1 Constitución/1.1 Decisión tipo de sociedad|1.1 Decisión tipo de sociedad]]
 - [[Legal/1 Constitución/1.2 Autorización de denominación|1.2 Autorización de denominación]]
 - [[Legal/1 Constitución/1.3 Estatutos (contrato social art. 6 LGSM)|1.3 Estatutos (contrato social art. 6 LGSM)]]
