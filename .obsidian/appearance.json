@@ -1,1 +1,6 @@
-{"enabledCssSnippets":["canvas-claude-light","estilo-chatgpt-lectura"]}
+{
+  "enabledCssSnippets": [
+    "canvas-claude-light",
+    "estilo-chatgpt-lectura"
+  ]
+}
