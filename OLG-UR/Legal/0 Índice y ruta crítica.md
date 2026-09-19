@@ -1,5 +1,7 @@
 # 0 Índice y ruta crítica
 
+**Control de entregables:** [[Legal/0.1 Expediente maestro — documentos que debemos tener|Expediente maestro — documentos que debemos tener]]. Consulta qué documentos aplican, su estado, responsable, ubicación y vigencia.
+
 > [!important] Alcance
 > Ruta operativa de control para la empresa. Antes de ejecutar un trámite o firmar un documento, validar vigencia, municipio, forma societaria y hechos concretos con notario, abogado y contador.
 
