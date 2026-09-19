@@ -1,0 +1,158 @@
+/* Estilo editorial inspirado en la lectura de ChatGPT.
+   Alcance: notas Markdown en Reading view y Live Preview. */
+
+body {
+  --chatgpt-note-font: "Segoe UI", "Segoe UI Variable", system-ui, sans-serif;
+  --chatgpt-note-width: 720px;
+}
+
+/* Variables nativas: se limitan a las notas, no a paneles ni a Canvas. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview {
+  --file-line-width: 720px;
+  --table-text-size: 15.75px;
+  --bold-weight: 600;
+  --p-spacing: 18px;
+}
+
+/* Mantiene una sola columna legible, sin afectar paneles ni la barra lateral. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-preview-sizer,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-sizer {
+  max-width: var(--chatgpt-note-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Cuerpo del texto: tanto lectura como edición (Live Preview). */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-content,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-line {
+  font-family: var(--chatgpt-note-font);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.625;
+  text-align: left;
+}
+
+/* No convertir código a la fuente proporcional del texto. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered code,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered pre,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-inline-code,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .HyperMD-codeblock {
+  font-family: var(--font-monospace);
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered p {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered strong,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered b,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-strong {
+  font-family: "Segoe UI Semibold", var(--chatgpt-note-font);
+  font-weight: 600;
+}
+
+/* Títulos de la nota y títulos Markdown. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .inline-title,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .inline-title,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h1,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-1,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-header-1 {
+  font-family: var(--chatgpt-note-font);
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h2,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-header-2 {
+  font-family: var(--chatgpt-note-font);
+  font-size: 22.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h3,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-3,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-header-3 {
+  font-family: var(--chatgpt-note-font);
+  font-size: 20.25px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Separador editorial entre bloques. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered hr {
+  margin-top: 31.5px;
+  margin-bottom: 31.5px;
+}
+
+/* Reconstrucción editorial: aire consistente para títulos y listas. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h1,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h2,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered h3 {
+  margin-top: 31.5px;
+  margin-bottom: 18px;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered ul,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered ol {
+  margin-top: 0;
+  margin-bottom: 18px;
+  padding-inline-start: 1.5em;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered li {
+  margin-bottom: 6px;
+}
+
+/* Tablas discretas: solo líneas horizontales, sin cuadrícula vertical. */
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered table,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget table {
+  font-family: var(--chatgpt-note-font);
+  font-size: 15.75px;
+  line-height: 1.5;
+  border-collapse: collapse;
+  background: transparent;
+  color: inherit;
+  max-width: 100%;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered .el-table,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered table th,
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered table td,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget th,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget td {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--background-modifier-border, rgba(127, 127, 127, 0.28));
+  border-left: 0;
+  background: transparent;
+  color: inherit;
+  padding: 8px 12px;
+}
+
+.workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered table th,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget th {
+  font-family: "Segoe UI Semibold", var(--chatgpt-note-font);
+  font-weight: 600;
+}
+
+/* Los colores de referencia se aplican exclusivamente si se usa tema claro. */
+.theme-light .workspace-leaf-content[data-type="markdown"] .view-content {
+  background-color: #fcfcfc;
+}
+
+.theme-light .workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered,
+.theme-light .workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-content,
+.theme-light .workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-line {
+  color: #0d0d0d;
+}
