@@ -1,13 +1,1 @@
-{
-	"nodes":[
-		{"id":"paso1","type":"file","file":"OLG-UR/Legal/1 Constitución/1.1 Decisión tipo de sociedad.md","x":20,"y":480,"width":920,"height":1100},
-		{"id":"status","type":"text","text":"# Paso 1.1 — Elegir tipo de sociedad\n\n**Una sola caja abajo.** Todo pasa ahí: leer → decidir → marcar las 3 casillas del cockpit → llenar [[Decisiones]].\n\n`estado: borrador` en la nota hasta que cierres el paso.","x":120,"y":120,"width":720,"height":140}
-	],
-	"edges":[
-		{"id":"e1","fromNode":"status","fromSide":"bottom","toNode":"paso1","toSide":"top"}
-	],
-	"metadata":{
-		"version":"1.0-1.0",
-		"frontmatter":{}
-	}
-}
+{"nodes":[{"id":"paso1","type":"file","file":"OLG-UR/Legal/1 Constitución/1.1 Decisión tipo de sociedad.md","x":20,"y":480,"width":920,"height":1100},{"id":"status","type":"text","text":"# Paso 1.1 — Elegir tipo de sociedad\n\n**Una sola caja abajo.** Todo pasa ahí: leer → decidir → marcar las 3 casillas del cockpit → completar la sección “Información por responder” de 1.1.\n\n`estado: borrador` en la nota hasta que cierres el paso.","x":120,"y":120,"width":720,"height":140}],"edges":[{"id":"e1","fromNode":"status","fromSide":"bottom","toNode":"paso1","toSide":"top"}],"metadata":{"version":"1.0-1.0","frontmatter":{}}}
