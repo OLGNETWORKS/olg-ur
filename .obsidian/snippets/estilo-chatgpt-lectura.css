@@ -114,7 +114,7 @@ body {
 .workspace-leaf-content[data-type="markdown"] .markdown-source-view.mod-cm6.is-live-preview .cm-table-widget table {
   font-family: var(--chatgpt-note-font);
   font-size: 15.75px;
-  line-height: 1.5;
+  line-height: 27px;
   border-collapse: collapse;
   background: transparent;
   color: inherit;
@@ -138,6 +138,7 @@ body {
   background: transparent;
   color: inherit;
   padding: 8px 12px;
+  line-height: inherit;
 }
 
 .workspace-leaf-content[data-type="markdown"] .markdown-reading-view .markdown-rendered table th,
